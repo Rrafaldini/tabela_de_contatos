@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabela Contatos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./main.css"/>
+</head>
+<body>
+<div class="container">
+<header>
+<img src="https://img.freepik.com/vetores-gratis/modelo-de-lista-telefonica-de-design-plano_23-2149977806.jpg?semt=ais_hybrid&w=740" alt="imagem de lista de contatos">
+<h1>Lista atualizada de contatos</h1>
+</header>
+<form id="formulario-de-cadastro">
+<input type="text" id="nome-contato" placeholder="Nome do Contato" required>
+<input type="text" id="telefone-contato" placeholder="Telefone do Contato" required>
+<input type="text" id="email-contato" placeholder="Email do Contato" required>
+<button type="submit" id="botão envio">Adicionar +</button>
+</form>
+<table id="master-tabela" cellspacing="0">
+<thead id="tabela-contatos">
+<tr>
+<th>Nome Completo</th>
+<th>Telefone</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody id="tabela-corpo">
+<tfoot id="tabela-rodape">
+<tr>
+<td id="total-contatos" colspan="3">Total de contatos: </td>
+</tr>
+</tfoot>
+</table>
+<script src="./main.js"></script>
+</div>
+</body>
+</html>

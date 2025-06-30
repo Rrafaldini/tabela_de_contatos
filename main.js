@@ -5,6 +5,7 @@ form.addEventListener('submit', function(e) {
 e.preventDefault();
 adicionaLinha()
 atualizaTotalContatos
+atualizaTabela()
 });
 
 function adicionaLinha () {
@@ -31,6 +32,15 @@ return;
 }
 }
 
+let contatos = JSON.parse(localStorage.getItem('contatos')) || [];
+contatos.push({
+nome: inputNome.value,
+telefone: inputTelefone.value,
+email: inputEmail.value
+});
+localStorage.setItem('contatos', JSON.stringify(contatos));
+
+
 let novaLinha = `
 <tr>
 <td>${inputNome.value}</td>
@@ -47,9 +57,28 @@ inputTelefone.value = '';
 
 }
 
+function atualizaTabela() {
+let tabelaCorpo = document.getElementById('tabela-corpo');
+tabelaCorpo.innerHTML = '';
+let contatos = JSON.parse(localStorage.getItem('contatos')) || [];
+contatos.forEach(contato => {
+let novaLinha = `
+<tr>
+<td>${contato.nome}</td>
+<td>${contato.telefone}</td>
+<td>${contato.email}</td>
+</tr>`;
+tabelaCorpo.innerHTML += novaLinha;
+});
+
+
+atualizaTotalContatos();}
 function atualizaTotalContatos() {
 const tabelaCorpo = document.getElementById('tabela-corpo');
 const total = tabelaCorpo.getElementsByTagName('tr').length;
 document.getElementById('total-contatos').textContent = `Total de contatos: ${total}`;
 }
 
+window.onload = function() {
+    atualizaTabela();
+}
